@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, OverlayTrigger, Tooltip, Container } from 'react-bootstrap';
 
 interface TradeEntry {
@@ -20,14 +20,13 @@ interface BondTableProps {
 }
 
 const BondTable: React.FC<BondTableProps> = ({ data }) => {
-  const [bonds, setBonds] = useState<Trade[]>(data);
   const [stats, setStats] = useState({ bought: 0, sold: 0 });
 
   useEffect(() => {
-    const boughtCount = bonds.reduce((acc, trade) => acc + trade.h.sO.filter((item) => item.st === "BOUGHT").length, 0);
-    const soldCount = bonds.reduce((acc, trade) => acc + trade.h.sO.filter((item) => item.st === "SOLD").length, 0);
+    const boughtCount = data.reduce((acc, trade) => acc + trade.h.sO.filter((item) => item.st === "BOUGHT").length, 0);
+    const soldCount = data.reduce((acc, trade) => acc + trade.h.sO.filter((item) => item.st === "SOLD").length, 0);
     setStats({ bought: boughtCount, sold: soldCount });
-  }, [bonds]);
+  }, [data]);
 
   return (
     <Container className="container-custom">
@@ -48,7 +47,7 @@ const BondTable: React.FC<BondTableProps> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {bonds.flatMap((trade) =>
+          {data.flatMap((trade) =>
             trade.h.sO.map((entry, index) => (
               <tr key={index}>
                 <td>{new Date(entry.t).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}</td>
