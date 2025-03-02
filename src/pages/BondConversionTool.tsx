@@ -3,14 +3,26 @@ import FileUpload from '../components/FileUpload';
 import BondTable from '../components/BondTable';
 import { Container, Row, Col, Alert, Button } from 'react-bootstrap';
 
+interface TradeEntry {
+  t: string; // Timestamp
+  p: number; // Price
+  st: string; // Status: BOUGHT or SOLD
+  cC?: number; // Conversion Cost (optional)
+}
+
+interface Trade {
+  id: number;
+  name: string;
+  h: { sO: TradeEntry[] };
+}
+
 const BondConversionTool: React.FC = () => {
-  const [jsonData, setJsonData] = useState<any[]>([]);
+  const [jsonData, setJsonData] = useState<Trade[]>([]);
   const [fileName, setFileName] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isConverted, setIsConverted] = useState<boolean>(false);
   const [showButtons, setShowButtons] = useState<boolean>(false);
 
-  // ✅ Fix: Restored file upload logic
   const handleFileUpload = (file: File) => {
     if (file.type !== 'application/json') {
       setError('Invalid file type. Please upload a JSON file.');
@@ -25,7 +37,7 @@ const BondConversionTool: React.FC = () => {
       try {
         if (e.target && e.target.result) {
           const content = JSON.parse(e.target.result as string);
-          const bonds = content.trades.filter((item: any) => item.id === 13190 && item.name === "Old school bond");
+          const bonds = content.trades.filter((item: Trade) => item.id === 13190 && item.name === "Old school bond");
           if (bonds.length === 0) {
             throw new Error('Invalid dataset');
           }
@@ -43,45 +55,42 @@ const BondConversionTool: React.FC = () => {
     reader.readAsText(file);
   };
 
-const handleConvert = () => {
-  if (jsonData.length === 0) {
-    setError('No data to convert. Please upload a valid JSON file first.');
-    return;
-  }
+  const handleConvert = () => {
+    if (jsonData.length === 0) {
+      setError('No data to convert. Please upload a valid JSON file first.');
+      return;
+    }
 
-  const defaultKeys = ["uuid", "b", "id", "cQIT", "p", "t", "s", "st", "tAA", "tSFO", "tQIT", "tradeStartedAt", "beforeLogin"];
+    const defaultKeys = ["uuid", "b", "id", "cQIT", "p", "t", "s", "st", "tAA", "tSFO", "tQIT", "tradeStartedAt", "beforeLogin"];
+    let changesMade = false;
 
-  let changesMade = false; // Track if any changes happen
+    const updatedBonds = jsonData.map((trade) => {
+      const boughtBonds = trade.h.sO.filter((entry) => entry.st === "BOUGHT");
+      const totalBoughtPrice = boughtBonds.reduce((sum, entry) => sum + entry.p, 0);
+      const averageBoughtPrice = boughtBonds.length > 0 ? totalBoughtPrice / boughtBonds.length : 0;
 
-  const updatedBonds = jsonData.map((trade: any) => {
-    const boughtBonds = trade.h.sO.filter((entry: any) => entry.st === "BOUGHT");
-    const totalBoughtPrice = boughtBonds.reduce((sum: number, entry: any) => sum + entry.p, 0);
-    const averageBoughtPrice = boughtBonds.length > 0 ? totalBoughtPrice / boughtBonds.length : 0;
-
-    trade.h.sO.forEach((entry: any) => {
-      if (entry.st === "SOLD" && !Object.keys(entry).some(key => key !== 'cC' && !defaultKeys.includes(key))) {
-        if (!entry.hasOwnProperty('cC')) {
-          entry.cC = averageBoughtPrice * 0.10;
-          changesMade = true; // Mark that at least one change happened
+      trade.h.sO.forEach((entry) => {
+        if (entry.st === "SOLD" && !Object.keys(entry).some((key) => key !== "cC" && !defaultKeys.includes(key))) {
+          if (!entry.hasOwnProperty("cC")) {
+            entry.cC = averageBoughtPrice * 0.10;
+            changesMade = true;
+          }
         }
-      }
+      });
+
+      return trade;
     });
 
-    return trade;
-  });
+    if (!changesMade) {
+      setError('No changes were made because no matching bonds were found.');
+      return;
+    }
 
-  if (!changesMade) {
-    setError('No changes were made because no matching bonds were found.');
-    return;
-  }
+    setJsonData([...updatedBonds]);
+    setError(null);
+    setIsConverted(true);
+  };
 
-  setJsonData([...updatedBonds]);
-  setError(null);
-  setIsConverted(true);
-};
-
-
-  //
   const handleDownload = () => {
     if (!isConverted) {
       setError('Please convert the data before downloading.');
