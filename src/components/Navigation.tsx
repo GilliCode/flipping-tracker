@@ -15,14 +15,14 @@ const Navigation: React.FC = () => {
             <Nav.Link
               as={NavLink}
               to="/bond-conversion"
-              className={({ isActive }: { isActive: boolean }) => (isActive ? 'active' : '')}
+              className="nav-link"
             >
               Bond Conversion Tool
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/recipe-builder"
-              className={({ isActive }: { isActive: boolean }) => (isActive ? 'active' : '')}
+              className="nav-link"
             >
               Recipe Tool
             </Nav.Link>

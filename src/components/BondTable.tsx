@@ -29,28 +29,6 @@ const BondTable: React.FC<BondTableProps> = ({ data }) => {
     setStats({ bought: boughtCount, sold: soldCount });
   }, [bonds]);
 
-  const defaultKeys = ["uuid", "b", "id", "cQIT", "p", "t", "s", "st", "tAA", "tSFO", "tQIT", "tradeStartedAt", "beforeLogin"];
-
-  const handleConvert = () => {
-    const boughtBonds = bonds.flatMap((trade) => trade.h.sO.filter((entry) => entry.st === "BOUGHT"));
-    const totalBoughtPrice = boughtBonds.reduce((sum, entry) => sum + entry.p, 0);
-    const averageBoughtPrice = boughtBonds.length > 0 ? totalBoughtPrice / boughtBonds.length : 0;
-
-    const updatedBonds = bonds.map((trade) => {
-      if (trade.id === 13190 && trade.name === "Old school bond") {
-        trade.h.sO.forEach((entry) => {
-          if (entry.st === "SOLD" && !Object.keys(entry).some((key) => key !== "cC" && !defaultKeys.includes(key))) {
-            if (!entry.hasOwnProperty("cC")) {
-              entry.cC = averageBoughtPrice * 0.1; // 10% of the average bought price
-            }
-          }
-        });
-      }
-      return trade;
-    });
-    setBonds(updatedBonds);
-  };
-
   return (
     <Container className="container-custom">
       <h4 className="text-green">Transactions</h4>
