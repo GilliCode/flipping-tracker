@@ -8,7 +8,7 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <Router basename="">
+    <Router basename="/flipping-tracker">
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
