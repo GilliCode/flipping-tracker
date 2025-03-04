@@ -79,7 +79,7 @@ body {
   left: 0;
   width: 100vw;
   height: calc(100vh - 70px); /* Full height minus navbar height */
-  background: url('/flipping-tracker/FUL.png') center / cover no-repeat;
+  background: url('/FUL.png') center / cover no-repeat;
   z-index: 0; /* Ensure background image is behind other content */
   background-size: contain;
   background-attachment: fixed;
