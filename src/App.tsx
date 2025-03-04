@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <Router>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />  {/* Home loads first */}
+        <Route path="/flipping-tracker" element={<Home />} />  {/* Home loads first */}
         <Route path="/bond-conversion" element={<BondConversionTool />} />
         <Route path="/recipe-builder" element={<RecipeBuilder />} />
       </Routes>

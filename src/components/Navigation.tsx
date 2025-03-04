@@ -6,7 +6,7 @@ const Navigation: React.FC = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="navbar-dark">
       <Container>
-        <Navbar.Brand as={NavLink} to="/" className="navbar-brand">
+        <Navbar.Brand as={NavLink} to="/flipping-tracker" className="navbar-brand">
           Flipping Tracker
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
