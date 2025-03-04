@@ -112,7 +112,7 @@ const BondConversionTool: React.FC = () => {
     <Container className="container-custom">
       <Row className="mt-3">
         <Col>
-          <img src="/flipping-tracker/OSRS_Bond.png" alt="OSRS Bond" className="bond-image" /> {/* Add the bond image */}
+          <img src="OSRS_Bond.png" alt="OSRS Bond" className="bond-image" /> {/* Add the bond image */}
         </Col>
       </Row>
       <Row className="mt-3">
