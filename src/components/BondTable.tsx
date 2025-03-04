@@ -40,7 +40,10 @@ const BondTable: React.FC<BondTableProps> = ({ data }) => {
             <th>Price</th>
             <th>
               Conversion Cost
-              <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-top">Conversion cost is only applicable to SOLD bonds</Tooltip>}>
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip id="tooltip-top" className="tooltip-top">Conversion cost is only applicable to SOLD bonds</Tooltip>}
+              >
                 <span style={{ cursor: "pointer", marginLeft: "5px" }}>🛈</span>
               </OverlayTrigger>
             </th>

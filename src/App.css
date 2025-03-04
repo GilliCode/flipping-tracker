@@ -1,58 +1,4 @@
-/* Adjusted Button Styles */
-.btn-success {
-  background-color: #619518 !important; /* Update background color to #619518 */
-  color: #ffffff !important; /* Ensure text color is white */
-  border: none !important;
-  margin-right: 10px; /* Add margin for spacing */
-}
-
-.btn-info {
-  background-color: #619518 !important; /* Update background color to #619518 */
-  color: #ffffff !important; /* Ensure text color is white */
-  border: none !important;
-  margin-left: 10px; /* Add margin for spacing */
-}
-
-.btn:hover {
-  background-color: #7fa732 !important; /* Slightly lighter green on hover */
-}
-
-/* Container Styles for Justified Spacing */
-.button-group {
-  display: flex;
-  justify-content: center; /* Center the buttons within the container */
-  margin-top: 20px;
-}
-
-/* Existing styles and new styles merged */
-body {
-  background-color: #252525;
-  font-family: Arial, sans-serif;
-  color: #e0e0e0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  padding-top: 70px;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.file-upload-container {
-  min-height: 100px;
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
+/* Tooltip Styles */
 .error-tooltip {
   position: relative;
   display: inline-block;
@@ -67,9 +13,9 @@ body {
   text-align: center;
   padding: 8px;
   border-radius: 4px;
-  position: absolute;
+  position: absolute; /* Use absolute positioning */
   z-index: 1;
-  bottom: 125%;
+  bottom: 125%; /* Position above the element */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -81,94 +27,23 @@ body {
   opacity: 1;
 }
 
-.container-custom {
-  margin-top: 5rem;
-}
-
-.navbar-dark {
-  background-color: rgb(24, 25, 26) !important;
-}
-
-.navbar-brand,
-.nav-link {
-  color: #e0e0e0;
-}
-
-.nav-link.active {
-  color: #00ff00;
-}
-
-.background-image {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 70px);
-  background: url('/FUL.png') center / cover no-repeat;
-  z-index: 0;
-  background-size: contain;
-  background-attachment: fixed;
-}
-
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  color: #e0e0e0;
-  position: relative;
+/* New Tooltip Styles */
+.tooltip-top {
+  position: absolute;
   z-index: 1;
-}
-
-.home-content {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  border-radius: 10px;
-}
-
-.fade-in {
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.cta-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: #007bff;
-  border: none;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.cta-button:hover {
-  background-color: #0056b3;
-}
-
-/* New styles for the bond conversion tool page */
-.bond-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  bottom: 125%; /* Adjust as necessary to place tooltip above */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  background-color: #ff4d4d;
+  color: #ffffff;
   text-align: center;
-  color: #e0e0e0;
+  padding: 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.bond-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bond-image {
-  width: 100px;
-  height: auto;
-  margin-right: 1rem;
+.overlay-trigger:hover .tooltip-top {
+  opacity: 1;
 }
