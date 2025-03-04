@@ -10,9 +10,12 @@
 <p>Sorry, the page you're looking for doesn't exist. Redirecting...</p>
 <script type="text/javascript">
     // Redirect to the correct URL within the single-page application
-    var pathname = window.location.pathname;
-    var redirectUrl = '/flipping-tracker' + pathname.replace('/flipping-tracker/', '');
-    window.location.replace(redirectUrl);
+    (function() {
+      var pathname = window.location.pathname;
+      var redirectUrl = '/flipping-tracker' + pathname.replace('/flipping-tracker/', '');
+      history.pushState(null, '', redirectUrl);
+      window.location.replace(redirectUrl);
+    })();
 </script>
 </body>
 </html>
