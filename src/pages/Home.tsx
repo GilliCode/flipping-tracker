@@ -10,7 +10,8 @@ const Home: React.FC = () => {
   return (
     <>
       <Navigation />
-      <div className="background-image"></div> {/* Add the background image */}
+      <div className="background-image"></div> {/* Add the FUL.png background image */}
+      <div className="osrs-bond-image"></div> {/* Add the OSRS_Bond.png background image */}
       <div className="home-container">
         <div className="home-content">
           <h1 className="display-4 fade-in">Welcome to the Flipping Tracker</h1>
