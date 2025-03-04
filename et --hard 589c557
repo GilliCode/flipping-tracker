@@ -1,0 +1,19 @@
+[33med35547[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmaster[m[33m)[m Add .nojekyll to bypass Jekyll build process
+[33m589c557[m - Move vite.svg to root directory for correct path resolution - Update index.html paths to reference assets correctly - Adjust app.css background image path - Update 404.html with lang attribute, title element, and corrected href
+[33m563c2c9[m - Move vite.svg to root directory for correct path resolution
+[33m84bb8f1[m Add .nojekyll to bypass Jekyll build process
+[33md55c477[m Clear cache and rebuild project
+[33ma1165fd[m Fix image path and ensure proper routing for GitHub Pages deployment
+[33m919903e[m Updated image path and resolved build-time warnings
+[33m44ff497[m Fixed nav paths
+[33m2b4e01a[m Add 404.html for SPA routing and update BondConversionTool
+[33m43b5b8c[m Added background image to welcome page and bond conversion page
+[33m06f6732[m Add FUL.png to assets
+[33m1c37078[m Fixed routing issue to home page
+[33mb131b60[m Fix asset paths for Github Pages
+[33md9bf157[m Fixed TypeScript errors, improved conversion logic, ensured correct error handling, and maintained dark theme with green text.AGAIN
+[33m329be00[m Fixed TypeScript errors, improved conversion logic, ensured correct error handling, and maintained dark theme with green text.
+[33m7243406[m chore: update package.json for GitHub Pages deployment
+[33m957e0e6[m feat: complete website with bond conversion, file upload.
+[33m6b497b1[m Initial commit
+[33mda2fe00[m Initial commit
