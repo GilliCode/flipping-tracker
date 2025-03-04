@@ -110,11 +110,11 @@ const BondConversionTool: React.FC = () => {
 
   return (
     <Container className="container-custom">
-          <Row className="mt-3">
-            <Col>
-              <img src="/flipping-tracker/OSRS_Bond.png" alt="OSRS Bond" className="bond-image" /> {/* Add the bond image */}
-            </Col>
-          </Row>
+      <Row className="mt-3">
+        <Col>
+          <img src="/flipping-tracker/OSRS_Bond.png" alt="OSRS Bond" className="bond-image" /> {/* Add the bond image */}
+        </Col>
+      </Row>
       <Row className="mt-3">
         <Col>
           <h4 className="text-green">Bond Conversion Tool</h4>
