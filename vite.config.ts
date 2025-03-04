@@ -2,6 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react()],
   base: '/flipping-tracker/', // Fix asset paths for GitHub Pages
+  plugins: [react()],
 });

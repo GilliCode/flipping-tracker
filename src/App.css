@@ -1,3 +1,5 @@
+/* Existing styles */
+
 body {
   background-color: #252525; /* Dark background color */
   font-family: Arial, sans-serif;
@@ -14,6 +16,7 @@ body {
   padding: 2rem;
   text-align: center;
   position: relative;
+  z-index: 1; /* Ensure content sits above the background image */
 }
 
 .file-upload-container {
@@ -22,7 +25,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;}
+  padding: 1rem;
+}
 
 .error-tooltip {
   position: relative;
@@ -69,18 +73,28 @@ body {
   color: #00ff00; /* Bright neon green highlight color for active link */
 }
 
+.background-image {
+  position: fixed;
+  top: 70px; /* Adjust based on the navbar height */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 70px); /* Full height minus navbar height */
+  background: url('/flipping-tracker/FUL.png') center / cover no-repeat;
+  z-index: 0; /* Ensure background image is behind other content */
+  background-size: contain;
+  background-attachment: fixed;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Keeps the cover image full height */
+  height: 100vh; /* Keeps the home container full height */
   text-align: center;
   color: #e0e0e0;
-  background: url('../assets/FUL.png') center / contain no-repeat; /* Updated to use new image */
-  background-size: contain; /* Adjusted to shrink image within container */
-  background-attachment: fixed;
   position: relative;
+  z-index: 1; /* Ensure home container content is above the background image */
 }
 
 .home-content {
@@ -109,4 +123,27 @@ body {
 
 .cta-button:hover {
   background-color: #0056b3;
+}
+
+/* New styles for the bond conversion tool page */
+.bond-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.bond-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bond-image {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 1rem; /* Space between image and text */
 }
