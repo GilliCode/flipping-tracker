@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import Navigation from '../components/Navigation'; // Adjust the import path to the correct location
-import '../App.css'; // Adjust the import path to the correct location
+import Navigation from '../components/Navigation';
+import '../App.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navigation />
-      <div className="background-image"></div> {/* Add the FUL.png background image */}
+      <div className="background-image"></div> {/* Uses FUL.png from public folder */}
       <div className="home-container">
         <div className="home-content">
           <h1 className="display-4 fade-in">Welcome to the Flipping Tracker</h1>

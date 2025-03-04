@@ -4,14 +4,14 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import BondConversionTool from './pages/BondConversionTool';
 import RecipeBuilder from './pages/RecipeBuilder';
-import './App.css';  // Include this if you have custom styles
+import './App.css';
 
 const App: React.FC = () => {
   return (
     <Router basename="/flipping-tracker/">
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />  {/* Home loads first */}
+        <Route path="/" element={<Home />} />
         <Route path="/bond-conversion" element={<BondConversionTool />} />
         <Route path="/recipe-builder" element={<RecipeBuilder />} />
       </Routes>
