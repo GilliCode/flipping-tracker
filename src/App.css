@@ -1,13 +1,38 @@
-/* Existing styles */
+/* Adjusted Button Styles */
+.btn-success {
+  background-color: #619518 !important; /* Update background color to #619518 */
+  color: #ffffff !important; /* Ensure text color is white */
+  border: none !important;
+  margin-right: 10px; /* Add margin for spacing */
+}
 
+.btn-info {
+  background-color: #619518 !important; /* Update background color to #619518 */
+  color: #ffffff !important; /* Ensure text color is white */
+  border: none !important;
+  margin-left: 10px; /* Add margin for spacing */
+}
+
+.btn:hover {
+  background-color: #7fa732 !important; /* Slightly lighter green on hover */
+}
+
+/* Container Styles for Justified Spacing */
+.button-group {
+  display: flex;
+  justify-content: center; /* Center the buttons within the container */
+  margin-top: 20px;
+}
+
+/* Existing styles and new styles merged */
 body {
-  background-color: #252525; /* Dark background color */
+  background-color: #252525;
   font-family: Arial, sans-serif;
-  color: #e0e0e0; /* Light text color */
+  color: #e0e0e0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  padding-top: 70px; /* Ensures content does not overlap with the fixed navbar */
+  padding-top: 70px;
 }
 
 #root {
@@ -16,12 +41,12 @@ body {
   padding: 2rem;
   text-align: center;
   position: relative;
-  z-index: 1; /* Ensure content sits above the background image */
+  z-index: 1;
 }
 
 .file-upload-container {
-  min-height: 100px; /* Ensures file input stays stable */
-  min-width: 100%; /* Fixed missing value */
+  min-height: 100px;
+  min-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +69,7 @@ body {
   border-radius: 4px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position above the element */
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -57,30 +82,30 @@ body {
 }
 
 .container-custom {
-  margin-top: 5rem; /* Add top margin to avoid overlap with navbar */
+  margin-top: 5rem;
 }
 
 .navbar-dark {
-  background-color: rgb(24, 25, 26) !important; /* Dark navbar background */
+  background-color: rgb(24, 25, 26) !important;
 }
 
 .navbar-brand,
 .nav-link {
-  color: #e0e0e0; /* Light text color for navbar */
+  color: #e0e0e0;
 }
 
 .nav-link.active {
-  color: #00ff00; /* Bright neon green highlight color for active link */
+  color: #00ff00;
 }
 
 .background-image {
   position: fixed;
-  top: 70px; /* Adjust based on the navbar height */
+  top: 70px;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 70px); /* Full height minus navbar height */
+  height: calc(100vh - 70px);
   background: url('/FUL.png') center / cover no-repeat;
-  z-index: 0; /* Ensure background image is behind other content */
+  z-index: 0;
   background-size: contain;
   background-attachment: fixed;
 }
@@ -90,15 +115,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Keeps the home container full height */
+  height: 100vh;
   text-align: center;
   color: #e0e0e0;
   position: relative;
-  z-index: 1; /* Ensure home container content is above the background image */
+  z-index: 1;
 }
 
 .home-content {
-  background: rgba(0, 0, 0, 0.6); /* Adds contrast for text readability */
+  background: rgba(0, 0, 0, 0.6);
   padding: 2rem;
   border-radius: 10px;
 }
@@ -143,7 +168,7 @@ body {
 }
 
 .bond-image {
-  width: 100px; /* Adjust the size as needed */
+  width: 100px;
   height: auto;
-  margin-right: 1rem; /* Space between image and text */
+  margin-right: 1rem;
 }
